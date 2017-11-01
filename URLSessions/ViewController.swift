@@ -9,21 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    var modelObjects =   URLManager.shared.fetchDataModel
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-//        http://www.pdf995.com/samples/pdf.pdf
+    
         tableView.estimatedRowHeight = 65
         tableView.rowHeight = UITableViewAutomaticDimension
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
 
     fileprivate func downloadFiles() {
@@ -31,10 +33,13 @@ class ViewController: UIViewController {
     }
 }
 
-
+//MARK: TableView Methods
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        
+        return modelObjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
