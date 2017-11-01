@@ -13,6 +13,7 @@
 		88A4B48E1FA8064700E586ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88A4B48C1FA8064700E586ED /* Main.storyboard */; };
 		88A4B4901FA8064700E586ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A4B48F1FA8064700E586ED /* Assets.xcassets */; };
 		88A4B4931FA8064700E586ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88A4B4911FA8064700E586ED /* LaunchScreen.storyboard */; };
+		88AACB6D1FAA2A37008298EA /* URLDownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AACB6C1FAA2A37008298EA /* URLDownloadModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		88A4B48F1FA8064700E586ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88A4B4921FA8064700E586ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88A4B4941FA8064700E586ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88AACB6C1FAA2A37008298EA /* URLDownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLDownloadModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		88A4B4871FA8064700E586ED /* URLSessions */ = {
 			isa = PBXGroup;
 			children = (
+				88E817BF1FAA29C30097063A /* Model */,
 				88A4B4881FA8064700E586ED /* AppDelegate.swift */,
 				88A4B48A1FA8064700E586ED /* ViewController.swift */,
 				886E4D431FA8D27C00E3FD2A /* CustomTableViewCell.swift */,
@@ -65,6 +68,15 @@
 				88A4B4941FA8064700E586ED /* Info.plist */,
 			);
 			path = URLSessions;
+			sourceTree = "<group>";
+		};
+		88E817BF1FAA29C30097063A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88AACB6C1FAA2A37008298EA /* URLDownloadModel.swift */,
+			);
+			name = Model;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				886E4D441FA8D27C00E3FD2A /* CustomTableViewCell.swift in Sources */,
+				88AACB6D1FAA2A37008298EA /* URLDownloadModel.swift in Sources */,
 				88A4B48B1FA8064700E586ED /* ViewController.swift in Sources */,
 				88A4B4891FA8064700E586ED /* AppDelegate.swift in Sources */,
 			);
