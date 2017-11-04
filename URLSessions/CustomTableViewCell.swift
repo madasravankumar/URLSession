@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol CustomTableViewCellProtocol {
+    func tableViewCell(_ customCell: CustomTableViewCell, _ didTapDownloadButton: UIButton)
+}
+
 class CustomTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var urlLbl: UILabel!
+    @IBOutlet private weak var titleLbl: UILabel!
+    @IBOutlet private weak var urlLbl: UILabel!
+    @IBOutlet private weak var downloadButton: UIButton!
+    @IBOutlet fileprivate weak var progressBar: UIProgressView!
     
+    var modelObj: (String, String)!
+    var delegate: CustomTableViewCellProtocol?
  
     
     override func awakeFromNib() {
@@ -21,37 +29,38 @@ class CustomTableViewCell: UITableViewCell {
     }
 
     
-    func configureCell(model:URLDownloadModel)
-     {
+    func configureCell(model:URLDownloadModel) {
         let data = model.fetchValues
+        modelObj = data
         self.titleLbl.text = data.0
         self.urlLbl.text = data.1
-       // self.titleLbl.text = model.fileTitle
-      //  self.urlLbl.text  = model.fileURL
-        
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
-    
-    
-    
-    
-    
-    @IBAction func downloadButtonTapped(_ sender: Any) {
+    @IBAction private func downloadButtonTapped(_ sender: Any) {
         
-        print("Download buttn Tapped")
+        //delegate?.tableViewCell(self, downloadButton)
+        let url = URL(string: modelObj.1)
+        NetWorkManager.shared.delegate = self
+        NetWorkManager.shared.downloadFile(url!)
+    }
+}
+
+extension CustomTableViewCell: NetWorkManagerDelegate {
+    func downloadRequestStarted() {
+        print("downloadRequestStarted")
     }
     
-    
-//    @IBAction fileprivate func downloadButtonTapped(_ sender: Any)
-//    
-//    {
-//     
-//        print("download button tapped")
-//        
-//    }
+    func downloadRequestDidUpdateProgress(_ progress: CGFloat) {
+        print("downloadRequestDidUpdateProgress: \(progress)")
+        
+        DispatchQueue.main.async {
+            self.progressBar.progress = Float(progress)
+        }
+    }
 }

@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="65" id="aHR-2B-wPs" customClass="CustomTableViewCell" customModule="URLSessions" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="65" id="aHR-2B-wPs" customClass="CustomTableViewCell" customModule="URLSessions" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHR-2B-wPs" id="6tL-pO-XCS">
@@ -44,12 +44,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="radius" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngW-es-Z9Y">
-                                                    <rect key="frame" x="298" y="19.5" width="69" height="30"/>
+                                                <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngW-es-Z9Y">
+                                                    <rect key="frame" x="298" y="17.5" width="69" height="30"/>
                                                     <color key="backgroundColor" red="1" green="0.43940568019969117" blue="0.059094773828471059" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <state key="normal" title="Download">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,6 +78,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="downloadButton" destination="ngW-es-Z9Y" id="kSH-5b-DtF"/>
+                                            <outlet property="progressBar" destination="Ep0-4b-xO8" id="aOJ-Sd-a2W"/>
                                             <outlet property="titleLbl" destination="m6M-Aj-2AL" id="cWc-Px-3sY"/>
                                             <outlet property="urlLbl" destination="hoV-qn-TvM" id="q8w-Cy-BTx"/>
                                         </connections>

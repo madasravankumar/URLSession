@@ -36,29 +36,28 @@ class ViewController: UIViewController {
 //MARK: TableView Methods
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return modelObjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? CustomTableViewCell
         
-   
-    {
-        cell.configureCell(model: modelObjects[indexPath.row])
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? CustomTableViewCell {
+            cell.configureCell(model: modelObjects[indexPath.row])
+            cell.delegate = self
+            return cell
         }
-        
-    else{
         return UITableViewCell()
-        }
-        
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+}
+
+extension ViewController: CustomTableViewCellProtocol {
+    func tableViewCell(_ customCell: CustomTableViewCell, _ didTapDownloadButton: UIButton) {
+        print("didTapDownloadButton")
     }
 }
