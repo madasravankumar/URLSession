@@ -43,8 +43,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CustomTableViewCell
+    if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? CustomTableViewCell
+        
+   
+    {
+        cell.configureCell(model: modelObjects[indexPath.row])
         return cell
+        }
+        
+    else{
+        return UITableViewCell()
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

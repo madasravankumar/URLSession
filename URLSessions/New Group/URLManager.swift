@@ -35,11 +35,16 @@ class URLManager: NSObject {
         let obj2:URLDownloadModel = URLDownloadModel("IPAD_DOWNLOADS", "http://www.mygdc.com/dpubs/ipad_downloads/airac.sqlite.zip?time=1")
         let obj3:URLDownloadModel = URLDownloadModel("VECTOR_BASE_MAP","https://www.prod.mygdc.com/~download/vector_base_map2_Places2.zip")
         let obj4:URLDownloadModel = URLDownloadModel("AIRPORTS_CHARTS", "https://www.prod.mygdc.com/dpubs/ipad_downloads/AIRPORT_CHARTS_AR_NEW_201711.zip")
+        let obj5:URLDownloadModel = URLDownloadModel("AIRPORTS_CHARTS_CR","https://www.prod.mygdc.com/dpubs/ipad_downloads/AIRPORT_CHARTS_CR_NEW_201711.zip")
+        let obj6:URLDownloadModel = URLDownloadModel("AIRPORTS_CHARTS_ER","https://www.prod.mygdc.com/dpubs/ipad_downloads/AIRPORT_CHARTS_ER_NEW_201711.zip")
+        
         
         modelArray.append(obj1)
         modelArray.append(obj2)
         modelArray.append(obj3)
         modelArray.append(obj4)
+        modelArray.append(obj5)
+        modelArray.append(obj6)
         
     }
     

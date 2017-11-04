@@ -10,8 +10,8 @@ import UIKit
 
 struct URLDownloadModel {
 
-    private var fileTitle: String
-    private var fileURL: String
+   private  var fileTitle: String
+   private  var fileURL: String
     /// it will retuns file title and file url
     var fetchValues: (String, String) {
         get {
