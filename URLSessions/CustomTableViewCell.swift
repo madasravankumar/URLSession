@@ -17,13 +17,9 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLbl: UILabel!
     @IBOutlet private weak var urlLbl: UILabel!
     @IBOutlet private weak var downloadButton: UIButton!
-    @IBOutlet fileprivate weak var progressBar: UIProgressView!
-    
-    
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var PauseBtn: UIButton!
-    
-    
-    @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var resumeBtn: UIButton!
     
     
     var modelObj: (String, String)!
@@ -50,46 +46,19 @@ class CustomTableViewCell: UITableViewCell {
     }
 
     @IBAction private func downloadButtonTapped(_ sender: Any) {
-        
-        //delegate?.tableViewCell(self, downloadButton)
-        let url = URL(string: modelObj.1)
-        NetWorkManager.shared.delegate = self
-        NetWorkManager.shared.downloadFile(url!)
+        delegate?.tableViewCell(self, downloadButton)
     }
-    
-    
     
     @IBAction func pauseButtonTapped(_ sender: Any) {
-        
-         let url = URL(string: modelObj.1)
-        
-        NetWorkManager.shared.pauseDownload(url!)
-        
-     return
-    }
-    
-    
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-       
         let url = URL(string: modelObj.1)
-        
-        NetWorkManager.shared.cancelDownload(url!)
-
-        print("Cancel button clicked")
+        NetWorkManager.shared.pauseDownload(url!)
+    }
+    
+    @IBAction func resumeButtonTapped(_ sender: Any) {
+        let url = URL(string: modelObj.1)
+        NetWorkManager.shared.resumeDownload(url!)
     }
     
 }
 
-extension CustomTableViewCell: NetWorkManagerDelegate {
-    func downloadRequestStarted() {
-        print("downloadRequestStarted")
-    }
-    
-    func downloadRequestDidUpdateProgress(_ progress: CGFloat) {
-        print("downloadRequestDidUpdateProgress: \(progress)")
-        
-        DispatchQueue.main.async {
-            self.progressBar.progress = Float(progress)
-        }
-    }
-}
+

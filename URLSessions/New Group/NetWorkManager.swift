@@ -13,7 +13,7 @@ protocol NetWorkManagerDelegate: class {
     
     /**A delegate method called each time whenever any download task's progress is updated
      */
-    func downloadRequestDidUpdateProgress(_ progress: CGFloat)
+    func downloadRequestDidUpdateProgress(_ progress: CGFloat, _ url: URL)
 
     /**A delegate method called each time whenever new download task is start downloading
      */
@@ -38,7 +38,7 @@ protocol NetWorkManagerDelegate: class {
 
 extension NetWorkManagerDelegate {
     //func didUpdateProgress(_ progress: CGFloat, withRemain remain: Double) {}
-    func downloadRequestDidUpdateProgress(_ progress: CGFloat) {
+    func downloadRequestDidUpdateProgress(_ progress: CGFloat,_ url: URL) {
         
     }
     func downloadRequestStarted() {
@@ -68,13 +68,12 @@ class NetWorkManager: NSObject {
 
     static let shared: NetWorkManager = NetWorkManager()
     var delegate: NetWorkManagerDelegate!
+    var activeDownloads: [URL:URLSessionDownloadTask] = [URL:URLSessionDownloadTask]()
     
     private override init() {
         super.init()
     }
-    
-    
-    
+
     lazy private var session: URLSession! = {
        
         let urlSessionConfig = URLSessionConfiguration.background(withIdentifier: "com.URLSession.backgroundSession")
@@ -85,23 +84,27 @@ class NetWorkManager: NSObject {
     
     
     func downloadFile(_ url: URL) {
-        session.downloadTask(with: url).resume()
+        let downloadTask = session.downloadTask(with: url)
+        downloadTask.resume()
+        activeDownloads.updateValue(downloadTask, forKey: url)
     }
-    
-    
-    
-    func pauseDownload(_ url: URL)
-    {
-        
-        session.downloadTask(with:url).suspend()
-        
-    }
-    
 
-    func cancelDownload(_ url: URL)
-    {
-       
-        session.downloadTask(with: url).cancel()
+    func pauseDownload(_ url: URL) {
+        if let downloadTask = activeDownloads[url] {
+            downloadTask.suspend()
+        }
+    }
+
+    func resumeDownload(_ url: URL) {
+        if let downloadTask = activeDownloads[url] {
+            downloadTask.resume()
+        }
+    }
+    
+    func cancelDownload(_ url: URL) {
+        if let downloadTask = activeDownloads[url] {
+            downloadTask.cancel()
+        }
     }
 }
 
@@ -113,6 +116,6 @@ extension NetWorkManager: URLSessionDelegate, URLSessionDownloadDelegate {
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         let progress = Float(downloadTask.countOfBytesReceived) / Float(downloadTask.countOfBytesExpectedToReceive)
-        delegate.downloadRequestDidUpdateProgress(CGFloat(progress))
+        delegate.downloadRequestDidUpdateProgress(CGFloat(progress), (downloadTask.currentRequest?.url)!)
     }
 }

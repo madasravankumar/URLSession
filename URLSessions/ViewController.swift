@@ -58,6 +58,31 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ViewController: CustomTableViewCellProtocol {
     func tableViewCell(_ customCell: CustomTableViewCell, _ didTapDownloadButton: UIButton) {
-        print("didTapDownloadButton")
+        let url = URL(string: customCell.modelObj.1)
+        NetWorkManager.shared.delegate = self
+        NetWorkManager.shared.downloadFile(url!)
+        
+    }
+}
+
+extension ViewController: NetWorkManagerDelegate {
+    func downloadRequestStarted() {
+        print("downloadRequestStarted")
+    }
+    
+    func downloadRequestDidUpdateProgress(_ progress: CGFloat,_ url: URL) {
+        var indexPath: IndexPath?
+        var row = 0
+        for modelObj in modelObjects {
+            if modelObj.fetchValues.1 == url.absoluteString {
+                indexPath = IndexPath(row: row, section: 0)
+                break
+            }
+            row += 1
+        }
+        DispatchQueue.main.async {
+            let cell = self.tableView.cellForRow(at: indexPath!) as! CustomTableViewCell
+            cell.progressBar.progress = Float(progress)
+        }
     }
 }

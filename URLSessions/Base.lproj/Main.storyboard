@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="123" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ixw-e3-rU9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="123" id="aHR-2B-wPs" customClass="CustomTableViewCell" customModule="URLSessions" customModuleProvider="target">
@@ -87,12 +87,12 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="97" id="Xaz-j7-VrL"/>
                                                             </constraints>
-                                                            <state key="normal" title="cancel">
+                                                            <state key="normal" title="Resume">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="cancelButtonTapped:" destination="aHR-2B-wPs" eventType="touchUpInside" id="8Md-pK-JLI"/>
+                                                                <action selector="resumeButtonTapped:" destination="aHR-2B-wPs" eventType="touchUpInside" id="Re6-yP-OD2"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -128,9 +128,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="PauseBtn" destination="LgB-cP-Iam" id="sbW-qC-Ik0"/>
-                                            <outlet property="cancelBtn" destination="Zfl-Tx-oQH" id="cCE-sx-WfV"/>
                                             <outlet property="downloadButton" destination="ngW-es-Z9Y" id="kSH-5b-DtF"/>
                                             <outlet property="progressBar" destination="Ep0-4b-xO8" id="aOJ-Sd-a2W"/>
+                                            <outlet property="resumeBtn" destination="Zfl-Tx-oQH" id="mRp-j7-8th"/>
                                             <outlet property="titleLbl" destination="m6M-Aj-2AL" id="cWc-Px-3sY"/>
                                             <outlet property="urlLbl" destination="hoV-qn-TvM" id="q8w-Cy-BTx"/>
                                         </connections>
