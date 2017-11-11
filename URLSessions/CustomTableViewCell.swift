@@ -19,6 +19,13 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet private weak var downloadButton: UIButton!
     @IBOutlet fileprivate weak var progressBar: UIProgressView!
     
+    
+    @IBOutlet weak var PauseBtn: UIButton!
+    
+    
+    @IBOutlet weak var cancelBtn: UIButton!
+    
+    
     var modelObj: (String, String)!
     var delegate: CustomTableViewCellProtocol?
  
@@ -49,6 +56,28 @@ class CustomTableViewCell: UITableViewCell {
         NetWorkManager.shared.delegate = self
         NetWorkManager.shared.downloadFile(url!)
     }
+    
+    
+    
+    @IBAction func pauseButtonTapped(_ sender: Any) {
+        
+         let url = URL(string: modelObj.1)
+        
+        NetWorkManager.shared.pauseDownload(url!)
+        
+     return
+    }
+    
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+       
+        let url = URL(string: modelObj.1)
+        
+        NetWorkManager.shared.cancelDownload(url!)
+
+        print("Cancel button clicked")
+    }
+    
 }
 
 extension CustomTableViewCell: NetWorkManagerDelegate {

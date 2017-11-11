@@ -22,31 +22,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ixw-e3-rU9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="123" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ixw-e3-rU9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="65" id="aHR-2B-wPs" customClass="CustomTableViewCell" customModule="URLSessions" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="123" id="aHR-2B-wPs" customClass="CustomTableViewCell" customModule="URLSessions" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHR-2B-wPs" id="6tL-pO-XCS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="m6M-Aj-2AL">
-                                                    <rect key="frame" x="8" y="8" width="255" height="21"/>
+                                                    <rect key="frame" x="8" y="8" width="255" height="30.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="hoV-qn-TvM">
-                                                    <rect key="frame" x="8" y="37" width="255" height="21"/>
+                                                    <rect key="frame" x="8" y="46.5" width="255" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="6py-Fc-5sd"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngW-es-Z9Y">
-                                                    <rect key="frame" x="298" y="17.5" width="69" height="30"/>
+                                                    <rect key="frame" x="298" y="47" width="69" height="30"/>
                                                     <color key="backgroundColor" red="1" green="0.43940568019969117" blue="0.059094773828471059" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <state key="normal" title="Download">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,28 +59,76 @@
                                                     </connections>
                                                 </button>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ep0-4b-xO8">
-                                                    <rect key="frame" x="0.0" y="62.5" width="375" height="2"/>
+                                                    <rect key="frame" x="0.0" y="121" width="375" height="2"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="Im7-uK-E1E"/>
                                                     </constraints>
                                                 </progressView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Mbs-Iy-tSt">
+                                                    <rect key="frame" x="73" y="82.5" width="200" height="20"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgB-cP-Iam">
+                                                            <rect key="frame" x="0.0" y="0.0" width="97" height="20"/>
+                                                            <color key="backgroundColor" red="1" green="0.4392156862745098" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="BSL-66-QOe"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Pause">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="pauseButtonTapped:" destination="aHR-2B-wPs" eventType="touchUpInside" id="9wT-Ra-zD9"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfl-Tx-oQH">
+                                                            <rect key="frame" x="103" y="0.0" width="97" height="20"/>
+                                                            <color key="backgroundColor" red="1" green="0.43921568630000002" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="97" id="Xaz-j7-VrL"/>
+                                                            </constraints>
+                                                            <state key="normal" title="cancel">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="cancelButtonTapped:" destination="aHR-2B-wPs" eventType="touchUpInside" id="8Md-pK-JLI"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="MzV-CP-V5m"/>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="ybf-2F-RZK"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="m6M-Aj-2AL" firstAttribute="top" secondItem="6tL-pO-XCS" secondAttribute="top" constant="8" id="00W-cP-a15"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ep0-4b-xO8" secondAttribute="trailing" id="5nH-oN-YSR"/>
+                                                <constraint firstItem="Mbs-Iy-tSt" firstAttribute="leading" secondItem="6tL-pO-XCS" secondAttribute="leadingMargin" constant="65" id="22p-Ul-Gj8"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ep0-4b-xO8" secondAttribute="trailing" id="2Qd-kQ-h6v"/>
                                                 <constraint firstItem="hoV-qn-TvM" firstAttribute="trailing" secondItem="m6M-Aj-2AL" secondAttribute="trailing" id="9SC-I7-pok"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ep0-4b-xO8" secondAttribute="bottom" id="9tk-5d-5cj"/>
                                                 <constraint firstAttribute="trailing" secondItem="m6M-Aj-2AL" secondAttribute="trailing" constant="112" id="9xq-5H-ZfC"/>
+                                                <constraint firstItem="Mbs-Iy-tSt" firstAttribute="top" secondItem="hoV-qn-TvM" secondAttribute="bottom" constant="16" id="GCv-U1-sRm"/>
+                                                <constraint firstItem="Mbs-Iy-tSt" firstAttribute="top" secondItem="hoV-qn-TvM" secondAttribute="bottom" constant="16" id="HAd-ws-JeG"/>
+                                                <constraint firstItem="Mbs-Iy-tSt" firstAttribute="leading" secondItem="6tL-pO-XCS" secondAttribute="leadingMargin" constant="65" id="I8D-k7-ljc"/>
+                                                <constraint firstItem="ngW-es-Z9Y" firstAttribute="leading" secondItem="Mbs-Iy-tSt" secondAttribute="trailing" constant="25" id="Jff-QH-rvj"/>
+                                                <constraint firstItem="Mbs-Iy-tSt" firstAttribute="leading" secondItem="6tL-pO-XCS" secondAttribute="leadingMargin" constant="65" id="JtC-5X-An0"/>
                                                 <constraint firstItem="Ep0-4b-xO8" firstAttribute="leading" secondItem="6tL-pO-XCS" secondAttribute="leading" id="UsY-kR-LIa"/>
                                                 <constraint firstItem="m6M-Aj-2AL" firstAttribute="leading" secondItem="6tL-pO-XCS" secondAttribute="leading" constant="8" id="awz-x8-uKM"/>
                                                 <constraint firstItem="ngW-es-Z9Y" firstAttribute="centerY" secondItem="6tL-pO-XCS" secondAttribute="centerY" id="bAf-VJ-caJ"/>
-                                                <constraint firstItem="Ep0-4b-xO8" firstAttribute="top" secondItem="hoV-qn-TvM" secondAttribute="bottom" constant="4.5" id="ckG-la-x6w"/>
+                                                <constraint firstItem="hoV-qn-TvM" firstAttribute="top" secondItem="m6M-Aj-2AL" secondAttribute="bottom" constant="8" id="cb6-Hg-XkS"/>
                                                 <constraint firstItem="hoV-qn-TvM" firstAttribute="leading" secondItem="m6M-Aj-2AL" secondAttribute="leading" id="ine-i5-KQK"/>
+                                                <constraint firstItem="Ep0-4b-xO8" firstAttribute="top" secondItem="Mbs-Iy-tSt" secondAttribute="bottom" constant="18.5" id="jaS-EG-Ba2"/>
+                                                <constraint firstItem="Mbs-Iy-tSt" firstAttribute="leading" secondItem="6tL-pO-XCS" secondAttribute="leadingMargin" constant="65" id="mMx-oW-juF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Mbs-Iy-tSt" secondAttribute="trailing" constant="94" id="wpu-Sh-V23"/>
                                                 <constraint firstItem="hoV-qn-TvM" firstAttribute="top" secondItem="m6M-Aj-2AL" secondAttribute="bottom" constant="8" id="wzh-xY-xI5"/>
                                                 <constraint firstItem="ngW-es-Z9Y" firstAttribute="trailing" secondItem="6tL-pO-XCS" secondAttribute="trailingMargin" id="zdB-lF-QNc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="PauseBtn" destination="LgB-cP-Iam" id="sbW-qC-Ik0"/>
+                                            <outlet property="cancelBtn" destination="Zfl-Tx-oQH" id="cCE-sx-WfV"/>
                                             <outlet property="downloadButton" destination="ngW-es-Z9Y" id="kSH-5b-DtF"/>
                                             <outlet property="progressBar" destination="Ep0-4b-xO8" id="aOJ-Sd-a2W"/>
                                             <outlet property="titleLbl" destination="m6M-Aj-2AL" id="cWc-Px-3sY"/>
@@ -106,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+            <point key="canvasLocation" x="-375.19999999999999" y="80.50974512743629"/>
         </scene>
     </scenes>
 </document>

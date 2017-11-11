@@ -61,6 +61,9 @@ extension NetWorkManagerDelegate {
     }
 }
 
+
+
+
 class NetWorkManager: NSObject {
 
     static let shared: NetWorkManager = NetWorkManager()
@@ -70,6 +73,8 @@ class NetWorkManager: NSObject {
         super.init()
     }
     
+    
+    
     lazy private var session: URLSession! = {
        
         let urlSessionConfig = URLSessionConfiguration.background(withIdentifier: "com.URLSession.backgroundSession")
@@ -77,8 +82,26 @@ class NetWorkManager: NSObject {
         return sessionObj
     }()
     
+    
+    
     func downloadFile(_ url: URL) {
         session.downloadTask(with: url).resume()
+    }
+    
+    
+    
+    func pauseDownload(_ url: URL)
+    {
+        
+        session.downloadTask(with:url).suspend()
+        
+    }
+    
+
+    func cancelDownload(_ url: URL)
+    {
+       
+        session.downloadTask(with: url).cancel()
     }
 }
 
