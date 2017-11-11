@@ -17,7 +17,7 @@ protocol NetWorkManagerDelegate: class {
 
     /**A delegate method called each time whenever new download task is start downloading
      */
-    func downloadRequestStarted()
+    func downloadRequestStarted(_ url: URL)
     /**A delegate method called each time whenever running download task is paused. If task is already paused the action will be ignored
      */
     func downloadRequestDidPaused()
@@ -41,7 +41,7 @@ extension NetWorkManagerDelegate {
     func downloadRequestDidUpdateProgress(_ progress: CGFloat,_ url: URL) {
         
     }
-    func downloadRequestStarted() {
+    func downloadRequestStarted(_ url: URL) {
         
     }
     func downloadRequestDidPaused() {
@@ -87,6 +87,7 @@ class NetWorkManager: NSObject {
         let downloadTask = session.downloadTask(with: url)
         downloadTask.resume()
         activeDownloads.updateValue(downloadTask, forKey: url)
+        delegate.downloadRequestStarted(url)
     }
 
     func pauseDownload(_ url: URL) {

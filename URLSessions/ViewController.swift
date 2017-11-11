@@ -66,11 +66,7 @@ extension ViewController: CustomTableViewCellProtocol {
 }
 
 extension ViewController: NetWorkManagerDelegate {
-    func downloadRequestStarted() {
-        print("downloadRequestStarted")
-    }
-    
-    func downloadRequestDidUpdateProgress(_ progress: CGFloat,_ url: URL) {
+    func modelObjectIndexPath(_ url: URL) -> IndexPath? {
         var indexPath: IndexPath?
         var row = 0
         for modelObj in modelObjects {
@@ -80,9 +76,24 @@ extension ViewController: NetWorkManagerDelegate {
             }
             row += 1
         }
-        DispatchQueue.main.async {
-            let cell = self.tableView.cellForRow(at: indexPath!) as! CustomTableViewCell
-            cell.progressBar.progress = Float(progress)
+        return indexPath
+    }
+    
+    func downloadRequestStarted(_ url: URL) {
+        if let indexPath = modelObjectIndexPath(url) {
+            DispatchQueue.main.async {
+                let cell = self.tableView.cellForRow(at: indexPath) as! CustomTableViewCell
+                cell.downloadButton.isHidden = true
+            }
+        }
+    }
+    
+    func downloadRequestDidUpdateProgress(_ progress: CGFloat,_ url: URL) {
+        if let indexPath = modelObjectIndexPath(url) {
+            DispatchQueue.main.async {
+                let cell = self.tableView.cellForRow(at: indexPath) as! CustomTableViewCell
+                cell.progressBar.progress = Float(progress)
+            }
         }
     }
 }

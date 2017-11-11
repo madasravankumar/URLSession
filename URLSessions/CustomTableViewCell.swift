@@ -16,7 +16,7 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleLbl: UILabel!
     @IBOutlet private weak var urlLbl: UILabel!
-    @IBOutlet private weak var downloadButton: UIButton!
+    @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var PauseBtn: UIButton!
     @IBOutlet weak var resumeBtn: UIButton!
